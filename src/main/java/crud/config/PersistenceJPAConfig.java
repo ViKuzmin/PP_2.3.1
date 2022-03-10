@@ -14,6 +14,7 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import javax.persistence.PersistenceContext;
 import javax.sql.DataSource;
 import java.util.Properties;
 
@@ -29,6 +30,7 @@ public class PersistenceJPAConfig{
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean manager
                 = new LocalContainerEntityManagerFactoryBean();
+
         manager.setDataSource(dataSource());
         manager.setPackagesToScan("crud");
         JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
